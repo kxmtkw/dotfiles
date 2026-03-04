@@ -1,35 +1,22 @@
 
+[general]
+
+import = [
+    "~/.config/alacritty/color.toml"
+]
+
 [window]
 
 dimensions = { columns = 80, lines = 25}
 padding = { x = 16, y = 16 }
-opacity = 0.8
+opacity = 0.85
+
+dynamic_title = true 
 
 [font]
 normal = { family = "Iosevka", style = "Regular"}
-size = 16
+size = 13
 
-[colors]
-
-[colors.primary]
-foreground = "#d4d4d4"
-background = "#121212"
-
-[colors.normal]
-red     = "#fdb2d4"
-yellow  = "#f8e9a6"
-green   = "#cdf6a0"
-cyan    = "#aaeaf6"
-blue    = "#98c4f3"
-magenta = "#c4a9f8"
-
-[colors.bright]
-red     = "#fdb2d4"
-yellow  = "#f8e9a6"
-green   = "#cdf6a0"
-cyan    = "#aaeaf6"
-blue    = "#98c4f3"
-magenta = "#c4a9f8"
 
 [cursor]
 style = { shape = "underline", blinking = "On" }
@@ -39,4 +26,3 @@ bindings = [
     { key ="c", mods = "Control", mode = "AppCursor", action = "Copy" },
     { key ="v", mods = "Control", mode = "AppCursor", action = "Paste" },
 ]
-

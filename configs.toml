@@ -1,0 +1,40 @@
+[hypr]
+src  = "hypr"
+dest = "~/.config/hypr"
+
+[kitty]
+src  = "kitty"
+dest = "~/.config/kitty"
+
+[zshrc]
+src  = "zsh/.zshrc"
+dest = "~/.zshrc"
+
+[zshenv]
+src  = "zsh/.zshenv"
+dest = "~/.zshenv"
+
+[zsh_autocomplete]
+src  = "zsh/.zsh_autocomplete"
+dest = "~/.zshac"
+
+[alacritty]
+src  = "alacritty"
+dest = "~/.config/alacritty"
+
+[fastfetch]
+src  = "fastfetch"
+dest = "~/.config/fastfetch"
+
+[starship]
+src  = "starship/starship.toml"
+dest = "~/.config/starship.toml"
+
+[kdecolors]
+src  = "kde/Carbon.colors"
+dest = "~/.local/share/color-schemes/Carbon.colors"
+
+[dunst]
+src  = "dunst"
+dest = "~/.config/dunst"
+

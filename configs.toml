@@ -15,7 +15,7 @@ src  = "zsh/.zshenv"
 dest = "~/.zshenv"
 
 [zsh_autocomplete]
-src  = "zsh/.zsh_autocomplete"
+src  = "zsh/.zshac"
 dest = "~/.zshac"
 
 [alacritty]

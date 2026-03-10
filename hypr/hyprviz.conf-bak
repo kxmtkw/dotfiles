@@ -1,39 +1,17 @@
 # hyprviz configuration (created automatically)
 
-# migration.conf - combined and expanded Hypr configuration for Hyprviz
-# generated from original files in ~/.config/hypr/hypr/
-# all variables have been substituted with their literal values since Hyprviz
-# does not support variable declarations.
 
-# environment settings (from env.conf and settings.conf)
 env = QT_QPA_PLATFORMTHEME, kde
 env = XDG_MENU_PREFIX, arch-
-env = TERMINAL, alacritty  # from $terminal in settings.conf
+env = TERMINAL, alacritty 
 
-# autostart commands
 exec-once = systemctl --user start hyprpolkitagent
-
 exec-once = swww-daemon
-
+exec-once = hypridle
 exec-once = sh -c "carbon.start"
 
-# monitors (from monitors.conf)
 monitor = ,1920x1080@60,auto,1.0
 
-# styling (from style.conf with colors substituted)
-
-# color definitions (originally from color.conf):
-#   border_active = rgb(40484b)
-#   border_inactive = rgba(40484b40)
-#   background = rgb(0f1416)
-#   surface = rgb(0f1416)
-#   onSurface = rgb(e9eef1)
-#   primary = rgb(86d1ea)
-#   onPrimary = rgb(002833)
-#   primaryContainer = rgb(21768c)
-#   error = rgb(ffb4ab)
-#   errorContainer = rgb(cf2c27)
-#   onErrorContainer = rgb(ffffff)
 
 general {
     border_size = 0
@@ -51,7 +29,7 @@ general {
 
 decoration {
     rounding = 12
-    rounding_power = 3.0
+    rounding_power = 2
     active_opacity = 1.0
     inactive_opacity = 1.0
     fullscreen_opacity = 1.0
@@ -78,7 +56,7 @@ misc {
     font_family = Ioesvka
 }
 
-# animations (from animations.conf)
+
 animations {
     enabled = true
     bezier = Smooth,  0.82, 0.04, 0.22, 0.79
@@ -92,7 +70,6 @@ animations {
     animation = zoomFactor,    1,     7.0,   Smooth
 }
 
-# cursor (from cursor.conf)
 exec-once = hyprctl setcursor Bibata-Modern-Classic-Hypr 24
 env = XCURSOR_THEME,Bibata-Modern-Classic
 env = XCURSOR_SIZE,24
@@ -100,7 +77,6 @@ env = XCURSOR_SIZE,24
 env = HYPRCURSOR_THEME,Bibata-Modern-Classic-Hypr
 env = HYPRCURSOR_SIZE,24
 
-# workspace definitions (from workspaces.conf)
 workspace = 1, persistent:true
 workspace = 2, persistent:true
 workspace = 3, persistent:true
@@ -108,15 +84,14 @@ workspace = 4, persistent:true
 workspace = 5, persistent:true
 workspace = 6, persistent:true
 
-# rules (from rules.conf)
-# ignore maximize requests
+
 windowrule {
     name = suppress-maximize-events
     match:class = .*
     suppress_event = maximize
 }
 
-# fix some dragging issues with XWayland
+
 windowrule {
     name = fix-xwayland-drags
     match:class = ^$
@@ -128,30 +103,25 @@ windowrule {
     no_focus = true
 }
 
-# kde apps
 windowrule =  match:class org.kde.gwenview,  float on
 windowrule =  match:class org.kde.haruna,    float on
 windowrule =  match:class org.kde.kcalc,     float on
 windowrule =  match:class org.kde.kclock,    float on
 windowrule =  match:class org.kde.calindori, float on
 
-# rofi
 layerrule = blur on, match:namespace rofi
 layerrule = ignore_alpha 0.1, match:namespace rofi
-layerrule = animation popin 70%, match:namespace rofi
-layerrule = dim_around on, match:namespace rofi
+layerrule = dim_around off, match:namespace rofi
 
 # don't idle on fullscreen
 windowrule = match:class .*, idle_inhibit fullscreen
 
-# layouts (from layouts.conf)
 dwindle {
     pseudotile = true 
     preserve_split = true
     split_width_multiplier = 1
 }
 
-# input (from input.conf)
 input {
     kb_layout = us
     kb_variant =
@@ -168,7 +138,6 @@ input {
     }
 }
 
-# keybinds (from keybinds.conf with variables expanded)
 
 # general
 bindo = Super, F9, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit
@@ -289,3 +258,5 @@ gestures {
     workspace_swipe_touch = true
     workspace_swipe_forever = true
 }
+layerrule = animation popin 70%, match:namespace rofi
+windowrule = match:title custom,rounding 90

@@ -1,6 +1,6 @@
-[hypr]
-src  = "hypr"
-dest = "~/.config/hypr"
+[hypr_override]
+src  = "hypr/override.conf"
+dest = "~/.config/hypr/override.conf"
 
 [kitty]
 src  = "kitty"
@@ -29,12 +29,3 @@ dest = "~/.config/fastfetch"
 [starship]
 src  = "starship/starship.toml"
 dest = "~/.config/starship.toml"
-
-[kdecolors]
-src  = "kde/Carbon.colors"
-dest = "~/.local/share/color-schemes/Carbon.colors"
-
-[dunst]
-src  = "dunst"
-dest = "~/.config/dunst"
-

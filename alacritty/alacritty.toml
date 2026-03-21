@@ -9,7 +9,7 @@ import = [
 
 dimensions = { columns = 80, lines = 25}
 padding = { x = 16, y = 16 }
-opacity = 0.85
+opacity = 0.8
 
 dynamic_title = true 
 

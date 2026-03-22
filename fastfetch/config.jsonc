@@ -11,18 +11,16 @@
         //    "5": "green"
         //}
         "source": "/home/haseeb/Images/cat.jpg",
-        "type": "kitty",
+        "type": "none",
         "height": 10,
-        "width": 20,
+        "width": 12,
         "padding": {
-            "top": 3,
-            "right": 5,
-           "left": 10
+            "top": 2,
+            "right": 6,
+           "left": 6
         }
     },
     "modules": [
-        "break",
-        "break",
         "break",
         {
             "type": "custom",
@@ -130,7 +128,6 @@
             "type": "custom",
             "format": "               \u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m "
         },
-        "break",
         "break"
     ]
 }

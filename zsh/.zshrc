@@ -60,4 +60,7 @@ alias gp='git push'
 # Prompt
 eval "$(starship init zsh)"
 
-fetch
+
+if [[ $(tput cols) -gt 200 ]]; then
+  fastfetch
+fi

@@ -2,7 +2,7 @@
 [general]
 
 import = [
-    "~/.config/alacritty/color.toml"
+    "~/.config/alacritty/Carbon.toml"
 ]
 
 [window]

@@ -38,8 +38,6 @@ def prompt(message: str, choices: list[str]) -> str:
 
 # Config
 
-CONFIG_PATH = Path("~/.dotfiles/configs.toml")
-
 def load_config(path: Path) -> dict:
     path = path.expanduser()
     if not path.exists():
@@ -63,13 +61,13 @@ def link(src: Path, dest: Path) -> None:
     elif dest.exists(follow_symlinks=True):
         choice = prompt(f"{dest} already exists! Do you want to remove it?", ["y", "n"])
         if choice == "y":
-            Color.Print(f"Removing {dest}", Color.yellow)
+            Color.Print(f"Removing: {dest}", Color.yellow)
             if dest.is_file():
                 dest.unlink()
             elif dest.is_dir():
                 shutil.rmtree(dest)
         else:
-            Color.Print(f"Skipped {dest}", Color.yellow)
+            Color.Print(f"Skipped: {dest}", Color.yellow)
             return
 
     parent = dest.parent
@@ -77,22 +75,20 @@ def link(src: Path, dest: Path) -> None:
         parent.mkdir(parents=True, exist_ok=True)
 
     dest.symlink_to(src.absolute(), src.is_dir())
-    Color.Print(f"Symlinked :: {dest} -> {src}", Color.green)
+    Color.Print(f"Symlinked: {dest} -> {src}", Color.green)
 
 
 def install() -> None:
-    Color.Print("Installing dotfiles...", Color.blue)
 
-    dotfiles_path = Path("~/.dotfiles").expanduser()
-    config = load_config(CONFIG_PATH)
+    Color.Print("Linking dotfiles...", Color.blue)
 
-    cache = Path("~/.dotfiles/cache").expanduser()
-    cache.mkdir(exist_ok=True)
-    Color.Print(f"Created cache :: {cache}", Color.green)
+    dotfiles_path = Path(__file__).parent
+    config_file = dotfiles_path.joinpath("configs.toml")
+    config = load_config(config_file)
 
     for name, details in config.items():
         if not isinstance(details, dict):
-            Color.Print(f"Skipping '{name}': expected a table, got {type(details).__name__}", Color.yellow)
+            Color.Print(f"Skipping '{name}': expected a table, got {type(details).__name__}", Color.red)
             continue
 
         src  = dotfiles_path / details["src"]
